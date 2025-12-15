@@ -20,7 +20,7 @@ A simple Symfony application to manage and share small, thoughtful gift ideas fo
 1. **Clone the repository:**
 
 bash
-git clone https://github.com/your-username/PetitSouhait.git
+git clone https://github.com/lauraLGWeb/petitSouhait.git
 cd PetitSouhait
 
 2. Install dependencies:
