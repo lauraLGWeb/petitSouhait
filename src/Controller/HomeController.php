@@ -19,7 +19,24 @@ final class HomeController extends AbstractController
      #[Route('/menu/ajouter', name: 'app_add')]
     public function add(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/ajouter.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+
+     #[Route('/famille', name: 'app_family')]
+    public function family(): Response
+    {
+        return $this->render('home/famille.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+      #[Route('/nosidees', name: 'app_idee')]
+    public function idee(): Response
+    {
+        return $this->render('home/idea.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
