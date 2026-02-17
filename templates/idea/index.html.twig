@@ -2,44 +2,73 @@
 
 {% block title %}Ajouter une idée{% endblock %}
 
+
+
+{% block CSS %}
+    <link rel="stylesheet" href="{{ asset('styles/ideas.css') }}">
+{% endblock %}
+
+
+
 {% block body %}
-    <p> voici nos idées</p>
+    <section class="pageContainer">
 
-        {% for type, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message|trans }}
-                </div>
+        <h1> Voici nos idées</h1>
+
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="flash-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
 
-<form method="GET" action="{{ path('app_idee') }}">
-    <label for="familyMembers"> De qui souhaite-tu voir les idées :</label>
+    {# to choose the personn's name  #}
 
-    <select name="membre" id="familyMembers" onchange="this.form.submit()">
-        <option value="">-- Fais ton choix --</option>
-        {% for User in Users %}
-            <option value="{{ User.id }}"
-                {% if selectedUser and selectedUser.id == User.id %}
-                     selected
-                {% endif %}>
-                {{ User.firstName }}
-            </option>
-        {% endfor %}
-    </select>
-</form>
+        <form class="filter-form" method="GET" action="{{ path('app_idee') }}">
+            <label for="familyMembers"> De qui souhaite-tu voir les idées :</label>
 
-    {% for idea in ideas %}
-        <section class="ideaCard">
-            <div>
-                <h2> {{ idea.title }}</h2>
-                <p>{{ idea.comment }}</p>
-                <p>{{ idea.price }}</p>
-                <p>{{ idea.picture }}</p>
-                <p>{{ idea.user.FirstName }}</p>
-            </div>
-        </section>{% else %}
-            <p>Sélectionne une personne pour voir ses idées.</p>
-    {% endfor %}
+            <select name="membre" id="familyMembers" onchange="this.form.submit()">
+                <option value="">-- Fais ton choix --</option>
 
+                {# get all the user #}
+                {% for User in Users %}
+                    <option value="{{ User.id }}"
+                    {# get the ideas form the selected person #}
+                        {% if selectedUser and selectedUser.id == User.id %}
+                            selected
+                        {% endif %}>
+                        {{ User.firstName }}
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+
+
+        {# each gift card idea #}
+        <div class="ideas-grid">
+            {% for idea in ideas %}
+                <section class="ideaCard">
+                    <h2>{{ idea.title }}</h2>
+                    <p class="idea-comment">{{ idea.comment }}</p>
+                    <span class="idea-price">{{ idea.price }} €</span>
+                    {% if idea.picture %}
+                        <img src="{{ idea.picture }}" alt="{{ idea.title }}" loading="lazy">
+                    {% else %}
+                        <div class="idea-placeholder">🎁</div>
+                    {% endif %}
+
+                    {# only the admin can modify #}
+                    {% if app.user %}
+                        <a href="{{ path('app_modifyIdea', {'id': idea.id}) }}" class="btn-actuality">
+                            {{ 'Modifier' }} →
+                        </a>
+                    {% endif %}
+
+                </section>
+            {% else %}
+                <p class="empty-state">il n'y a encore aucune idée de proposée </p>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

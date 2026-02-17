@@ -1,23 +1,116 @@
-/* body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(160deg, #FF6B6B, #FFDAB9, #FFEFD5);
-    position: relative;
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*,
+::after,
+::before {
+    box-sizing: none;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: radial-gradient(circle, rgba(255,0,0,0.2) 15%, transparent 5%),
-                      radial-gradient(circle, rgba(255,215,0,0.2) 15%, transparent 15%);
-    background-position: 0 0, 50px 50px;
-    background-size: 150px 100px;
-    pointer-events: none;
-} */
+* {
+    scrollbar-width:thin;
+    scrollbar-color: var(--color-primary-hover) var(--color-accent-light);
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+/*accessibility focus */
+:focus {
+  outline: 2px solid var(--text-primary);
+}
+
+:root {
+/* ================================
+       COULEURS PRINCIPALES
+    ================================ */
+    --color-primary:        #E8956D;   /* terracotta doux — boutons, accents */
+    --color-primary-hover:  #D4784F;   /* terracotta foncé — hover */
+    --color-primary-light:  #F7D4C0;   /* terracotta très clair — badges, tags */
+
+    --color-secondary:      #A8C5A0;   /* sauge vert — accents secondaires */
+    --color-secondary-hover:#88A880;   /* sauge foncé — hover */
+    --color-secondary-light:#D6EBD2;   /* sauge très clair — fonds doux */
+
+    --color-accent:         #F2A65A;   /* orange miel — highlights */
+    --color-accent-light:   #FDEBD0;   /* orange très clair */
+
+    /* ================================
+       FONDS
+    ================================ */
+    --bg-body:              #FDF6EC;   /* crème chaud — fond général */
+    --bg-card:              #FFF8F0;   /* blanc chaud — cartes */
+    --bg-card-hover:        #FFF2E5;   /* blanc chaud foncé — hover carte */
+    --bg-input:             #FFF8F0;   /* fond des inputs */
+    --bg-nav:               #FDF0E0;   /* fond navigation */
+    --bg-overlay:           rgba(61, 43, 31, 0.4); /* overlay modales */
+
+ /* ================================
+       TEXTES
+    ================================ */
+    --text-primary:         #4c3628;   /* brun foncé — texte principal */
+    --text-secondary:       #7A5C4A;   /* brun moyen — texte secondaire */
+    --text-muted:           #B08070;   /* brun clair — placeholders, infos */
+    --text-on-primary:      #FFF8F0;   /* texte sur bouton primary */
+    --text-on-dark:         #FDF6EC;   /* texte sur fond sombre */
+    --text-link:            #C96A3A;   /* liens */
+    --text-link-hover:      #A84F25;   /* liens hover */
+
+    /* ================================
+       CLAY — OMBRES & RELIEF
+    ================================ */
+    --clay-shadow-dark:     rgba(180, 110, 70, 0.35);  /* ombre portée */
+    --clay-shadow-light:    rgba(255, 245, 235, 0.9);  /* reflet clair */
+    --clay-inset-dark:      rgba(160, 95, 55, 0.3);    /* ombre intérieure */
+    --clay-inset-light:     rgba(255, 250, 240, 0.8);  /* lumière intérieure */
 
 
+
+    /* Card clay standard */
+    --clay-card:
+        inset -3px -3px 6px var(--clay-inset-dark),
+        inset  3px  3px 6px var(--clay-inset-light),
+        6px 6px 20px var(--clay-shadow-dark),
+       -2px -2px 8px var(--clay-shadow-light);
+
+    /* Bouton clay */
+    --clay-btn:
+        inset -2px -2px 5px var(--clay-inset-dark),
+        inset  2px  2px 5px var(--clay-inset-light),
+        4px 4px 12px var(--clay-shadow-dark),
+       -2px -2px 6px var(--clay-shadow-light);
+
+    /* Bouton clay pressé */
+    --clay-btn-active:
+        inset 3px 3px 8px var(--clay-inset-dark),
+        inset -2px -2px 5px var(--clay-inset-light);
+
+
+
+
+}
+
+/* ================================
+   FLASH MESSAGES
+================================ */
+
+.flash-success {
+    background: var(--color-secondary-light);
+    color: var(--color-secondary-hover);
+    border-left: 4px solid var(--color-secondary);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.flash-error {
+    background: #FAE0E0;
+    color: #B05050;
+    border-left: 4px solid #E07070;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
 
 
 
@@ -25,29 +118,9 @@ body {
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(135deg, #FF6B6B, #FFDAB9, #FFF8DC);
-    position: relative;
-    overflow: hidden;
     font-family: 'Helvetica Neue', sans-serif;
+   
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: radial-gradient(circle, rgba(255, 0, 0, 0.233) 20%, transparent 20%),
-                      radial-gradient(circle, rgba(240, 219, 230, 0.292) 15%, transparent 15%),
-                      radial-gradient(circle, rgba(134, 232, 132, 0.292) 5%, transparent 15%),
-                      radial-gradient(circle, rgba(243, 168, 179, 0.342) 25%, transparent 25%);
-                      
-    background-size: 120px 120px, 80px 80px, 150px 150px;
-    animation: floatBubbles 20s linear infinite;
-    pointer-events: none;
-}
 
-@keyframes floatBubbles {
-    0% { background-position: 0 100%, 50px 100%, 100px 100%; }
-    50% { background-position: 0 0, 50px 0, 100px 0; }
-    100% { background-position: 0 100%, 50px 100%, 100px 100%; }
-}
- 
+

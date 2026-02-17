@@ -43,21 +43,17 @@ final class IdeaController extends AbstractController
     ]);
     }
 
- // route for adding an idea for me 
+ // adding an idea for me 
      #[Route('/membre/menu/ajouterIdée', name: 'app_addGiftIdea')]
      #[IsGranted('ROLE_MEMBRE')]
     public function add( Request $request, EntityManagerInterface $em): Response
     {
-
-        //get the user connected
-        $actualUser = $this->getUser();
-
-           $idea = new Gift();
+        $idea = new Gift();
 
          //create the form
         $form = $this->createForm(IdeaType::class, $idea);
         $form->handleRequest($request);
-        $idea->setUser($actualUser);
+        $idea->setUser($idea->getUser());
 
         
          if ($form->isSubmitted() && $form->isValid()) {
@@ -76,6 +72,64 @@ final class IdeaController extends AbstractController
         }
 
          return $this->render("home/ajouter.html.twig", ["form" => $form]);
+     }
+
+
+
+     //modify the idea
+ #[Route('/membre/menu/ModifierIdée/{id}', name: 'app_modifyIdea')]
+    #[IsGranted('ROLE_MEMBRE')]
+    public function modifyIdea(Request $request,EntityManagerInterface $em , $id): Response
+    {
+
+        //get the idea
+        $idea = $em->getRepository(Gift::class)->find($id);
+
+        $form= $this->createForm(IdeaType::class, $idea);
+
+        //get the actual information 
+        $title = $idea->getTitle();
+        $comment = $idea->getComment();
+        $picture = $idea->getPicture();
+        $price = $idea->getPrice();
+        $user = $idea->getUser();
+
+        //fill the form with old info
+        $form->get('title')->setData($title);
+        $form->get('comment')->setData($comment);
+        $form->get('picture')->setData($picture);
+        $form->get('price')->setData($price);
+        $form->get('user')->setData($user);
+        
+
+        $form->handleRequest($request);
+        if($form->isSubmitted()&& $form->isValid())
+        {
+         //set up the new role into the database
+        $title = $form->get('title')->getData();
+        $idea->setTitle($title);
+
+        $comment = $form->get('comment')->getData();
+        $idea->setComment($comment);
+
+        $picture = $form->get('picture')->getData();
+        $idea->setPicture($picture);
+
+        $price = $form->get('price')->getData();  
+        $idea->setPrice($price);  
+
+        $user = $form->get('user')->getData();  
+        $idea->setUser($user); 
+     
+
+        $em-> flush();
+
+             $this->addFlash('success', 'Idée mise à jour avec succès !');          
+            return $this->redirectToRoute('app_idee');
+           
+           
+        } 
+          return $this->render("home/ajouter.html.twig", ["form" => $form]);
      }
 
 
