@@ -3,5 +3,38 @@
 {% block title %}Ajouter une idée{% endblock %}
 
 {% block body %}
-<p> tu peux ajouter une idée</p>
+<h1> form pour ajouter idée </h1>
+
+
+  
+
+{{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        
+        {{ form_row(form.title, {
+            'label': 'Titre'|trans
+        }) }}
+        
+        {{ form_row(form.comment, {
+            'label': 'Commentaire'|trans
+        }) }}
+        
+        {{ form_row(form.price, {
+            'label': 'Prix approximatif'|trans
+        }) }}
+        
+        {{ form_row(form.picture, {
+            'label': 'Photo'|trans
+        }) }}
+
+ <button type="submit" class="submit-button">{{ 'Ajouter mon idée'|trans }}</button>
+ 
+    {{ form_end(form) }}
+
+
+
+
+
+
 {% endblock %}

@@ -98,6 +98,42 @@ class __TwigTemplate_31760a71ddf29cb02e2c6f5f20afd0ee extends Template
 
         // line 6
         yield "<p> voici nos idées</p>
+
+    ";
+        // line 8
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 8, $this->source); })()), "flashes", [], "any", false, false, false, 8));
+        foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
+            // line 9
+            yield "        ";
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable($context["messages"]);
+            foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+                // line 10
+                yield "            <div class=\"flash-";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["type"], "html", null, true);
+                yield "\">
+                ";
+                // line 11
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($context["message"]), "html", null, true);
+                yield "
+            </div>
+        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['message'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 14
+            yield "    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['type'], $context['messages'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 15
+        yield "
+
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,7 +165,7 @@ class __TwigTemplate_31760a71ddf29cb02e2c6f5f20afd0ee extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  133 => 15,  127 => 14,  118 => 11,  113 => 10,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -140,6 +176,18 @@ class __TwigTemplate_31760a71ddf29cb02e2c6f5f20afd0ee extends Template
 
 {% block body %}
 <p> voici nos idées</p>
+
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class=\"flash-{{ type }}\">
+                {{ message|trans }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+
+
 {% endblock %}", "home/idea.html.twig", "/Applications/MAMP/htdocs/dw6/projets/PetitSouhait/templates/home/idea.html.twig");
     }
 }

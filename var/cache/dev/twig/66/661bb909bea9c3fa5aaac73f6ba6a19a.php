@@ -133,10 +133,7 @@ class __TwigTemplate_87eae862ae526c0b077e428a784272c2 extends Template
         yield "\">M'inscrire</a>
     </p>
     <label for=\"inputEmail\">Email</label>
-    <input type=\"email\" value=\"";
-        // line 22
-        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 22, $this->source); })()), "html", null, true);
-        yield "\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
+    <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
     <label for=\"inputPassword\">Password</label>
     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
     <input type=\"hidden\" name=\"_csrf_token\" data-controller=\"csrf-protection\" value=\"";
@@ -185,7 +182,7 @@ class __TwigTemplate_87eae862ae526c0b077e428a784272c2 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  144 => 25,  138 => 22,  132 => 19,  127 => 16,  119 => 13,  116 => 12,  114 => 11,  111 => 10,  105 => 8,  103 => 7,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  141 => 25,  132 => 19,  127 => 16,  119 => 13,  116 => 12,  114 => 11,  111 => 10,  105 => 8,  103 => 7,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -211,7 +208,7 @@ class __TwigTemplate_87eae862ae526c0b077e428a784272c2 extends Template
         <a class=\"nav-link\" href=\"{{ path(\"app_register\")}}\">M'inscrire</a>
     </p>
     <label for=\"inputEmail\">Email</label>
-    <input type=\"email\" value=\"{{ last_username }}\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
+    <input type=\"email\" name=\"email\" id=\"inputEmail\" class=\"form-control\" autocomplete=\"email\" required autofocus>
     <label for=\"inputPassword\">Password</label>
     <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" autocomplete=\"current-password\" required>
     <input type=\"hidden\" name=\"_csrf_token\" data-controller=\"csrf-protection\" value=\"{{ csrf_token('authenticate') }}\">

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une idée{% endblock %}
+
+{% block body %}
+    <p> voici nos idées</p>
+
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message|trans }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+<form method="GET" action="{{ path('app_idee') }}">
+    <label for="familyMembers"> De qui souhaite-tu voir les idées :</label>
+
+    <select name="membre" id="familyMembers" onchange="this.form.submit()">
+        <option value="">-- Fais ton choix --</option>
+        {% for User in Users %}
+            <option value="{{ User.id }}"
+                {% if selectedUser and selectedUser.id == User.id %}
+                     selected
+                {% endif %}>
+                {{ User.firstName }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
+
+
+    {% for idea in ideas %}
+        <section class="ideaCard">
+            <div>
+                <h2> {{ idea.title }}</h2>
+                <p>{{ idea.comment }}</p>
+                <p>{{ idea.price }}</p>
+                <p>{{ idea.picture }}</p>
+                <p>{{ idea.user.FirstName }}</p>
+            </div>
+        </section>{% else %}
+            <p>Sélectionne une personne pour voir ses idées.</p>
+    {% endfor %}
+
+{% endblock %}

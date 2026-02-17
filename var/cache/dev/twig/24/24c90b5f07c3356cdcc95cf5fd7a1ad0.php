@@ -97,7 +97,12 @@ class __TwigTemplate_c3698b75c3d1245aec7dc4c00330fb9e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<h1> voici le menu avec explication du site</h1>
+        yield "<h1> Coucou ";
+        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            yield " ";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "User", [], "any", false, false, false, 6), "FirstName", [], "any", false, false, false, 6), "html", null, true);
+        }
+        yield "</h1>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -139,7 +144,7 @@ class __TwigTemplate_c3698b75c3d1245aec7dc4c00330fb9e extends Template
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1> voici le menu avec explication du site</h1>
+<h1> Coucou {% if app.user %} {{ app.User.FirstName }}{% endif %}</h1>
 {% endblock %}
 ", "home/index.html.twig", "/Applications/MAMP/htdocs/dw6/projets/PetitSouhait/templates/home/index.html.twig");
     }

@@ -81,13 +81,13 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         ";
         // line 23
         yield from $this->unwrap()->yieldBlock('header', $context, $blocks);
-        // line 54
+        // line 58
         yield "
 
         ";
-        // line 56
+        // line 60
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 58
+        // line 62
         yield "
 
         
@@ -216,10 +216,9 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
         // line 24
-        yield "
-            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+        yield "        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"";
-        // line 26
+        // line 25
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_menu");
         yield "\">PetitSouhait</a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -227,39 +226,54 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
             </button>
             <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">
                 <ul class=\"navbar-nav\">
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"";
-        // line 33
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        yield "\">Me connecter</a>
-                </li>
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"";
+                     <li class=\"nav-item\"> 
+                        ";
+        // line 32
+        if ((($tmp = CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 32, $this->source); })()), "user", [], "any", false, false, false, 32)) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            yield "  
+                            <a class=\"dropdown-item\" href=\"";
+            // line 33
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            yield "\">Me déconnecter</a>
+                        ";
+        } else {
+            // line 35
+            yield "                            <a class=\"nav-link\" href=\"";
+            yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            yield "\">Me connecter</a>
+                        ";
+        }
         // line 36
+        yield " 
+                    </li>
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"";
+        // line 39
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_family");
         yield "\">Ma Famille <span class=\"sr-only\">(current)</span></a>
-                </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"";
-        // line 39
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+        // line 42
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_idee");
         yield "\">Nos Idées</a>
-                </li>
-                
-                <li class=\"nav-item dropdown\">
-                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    Mes idées
-                    </a>
-                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
-                    <a class=\"dropdown-item\" href=\"";
-        // line 47
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_add");
+                    </li>
+                    
+                    <li class=\"nav-item dropdown\">
+                        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                        Mes idées
+                        </a>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item\" href=\"";
+        // line 50
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addGiftIdea");
         yield "\">Ajouter</a>
-                    </div>
-                </li>
+                        </div>
+                    </li>
+                  
                 </ul>
             </div>
-            </nav>
+        </nav>
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -270,7 +284,7 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         yield from [];
     }
 
-    // line 56
+    // line 60
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -283,7 +297,7 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 57
+        // line 61
         yield "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -307,7 +321,7 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  287 => 57,  274 => 56,  256 => 47,  245 => 39,  239 => 36,  233 => 33,  223 => 26,  219 => 24,  206 => 23,  183 => 18,  172 => 19,  169 => 18,  156 => 17,  144 => 14,  131 => 13,  108 => 7,  91 => 58,  89 => 56,  85 => 54,  83 => 23,  78 => 20,  76 => 17,  73 => 16,  71 => 13,  62 => 7,  54 => 1,);
+        return array (  301 => 61,  288 => 60,  269 => 50,  258 => 42,  252 => 39,  247 => 36,  241 => 35,  236 => 33,  232 => 32,  222 => 25,  219 => 24,  206 => 23,  183 => 18,  172 => 19,  169 => 18,  156 => 17,  144 => 14,  131 => 13,  108 => 7,  91 => 62,  89 => 60,  85 => 58,  83 => 23,  78 => 20,  76 => 17,  73 => 16,  71 => 13,  62 => 7,  54 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -335,35 +349,39 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
     >
     <body>
         {% block header %}
-
-            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"{{ path(\"app_menu\")}}\">PetitSouhait</a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">
                 <ul class=\"navbar-nav\">
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path(\"app_login\")}}\">Me connecter</a>
-                </li>
-                <li class=\"nav-item active\">
-                    <a class=\"nav-link\" href=\"{{ path(\"app_family\")}}\">Ma Famille <span class=\"sr-only\">(current)</span></a>
-                </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path(\"app_idee\")}}\">Nos Idées</a>
-                </li>
-                
-                <li class=\"nav-item dropdown\">
-                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    Mes idées
-                    </a>
-                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
-                    <a class=\"dropdown-item\" href=\"{{ path(\"app_add\")}}\">Ajouter</a>
-                    </div>
-                </li>
+                     <li class=\"nav-item\"> 
+                        {% if app.user %}  
+                            <a class=\"dropdown-item\" href=\"{{ path(\"app_logout\")}}\">Me déconnecter</a>
+                        {% else %}
+                            <a class=\"nav-link\" href=\"{{ path(\"app_login\")}}\">Me connecter</a>
+                        {% endif %} 
+                    </li>
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"{{ path(\"app_family\")}}\">Ma Famille <span class=\"sr-only\">(current)</span></a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path(\"app_idee\")}}\">Nos Idées</a>
+                    </li>
+                    
+                    <li class=\"nav-item dropdown\">
+                        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                        Mes idées
+                        </a>
+                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                        <a class=\"dropdown-item\" href=\"{{ path(\"app_addGiftIdea\")}}\">Ajouter</a>
+                        </div>
+                    </li>
+                  
                 </ul>
             </div>
-            </nav>
+        </nav>
         {% endblock %}
 
 

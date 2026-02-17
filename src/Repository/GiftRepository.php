@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Gift;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -15,6 +16,18 @@ class GiftRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Gift::class);
     }
+
+
+
+    public function findByUser(User $user): array
+{
+    return $this->createQueryBuilder('userIdea')
+        ->andWhere('userIdea.user = :user')
+        ->setParameter('user', $user)
+        ->orderBy('userIdea.title', 'ASC')
+        ->getQuery()
+        ->getResult();
+}
 
     //    /**
     //     * @return Gift[] Returns an array of Gift objects

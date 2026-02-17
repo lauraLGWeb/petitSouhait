@@ -97,7 +97,60 @@ class __TwigTemplate_26506d30ed603c7070937171340b8546 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<p> tu peux ajouter une idée</p>
+        yield "<h1> form pour ajouter idée </h1>
+
+
+  
+
+";
+        // line 11
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 11, $this->source); })()), 'errors');
+        yield "
+
+    ";
+        // line 13
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
+        yield "
+        
+        ";
+        // line 15
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), "title", [], "any", false, false, false, 15), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Titre")]);
+        // line 17
+        yield "
+        
+        ";
+        // line 19
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), "comment", [], "any", false, false, false, 19), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Commentaire")]);
+        // line 21
+        yield "
+        
+        ";
+        // line 23
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "price", [], "any", false, false, false, 23), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Prix approximatif")]);
+        // line 25
+        yield "
+        
+        ";
+        // line 27
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "picture", [], "any", false, false, false, 27), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Photo")]);
+        // line 29
+        yield "
+
+ <button type=\"submit\" class=\"submit-button\">";
+        // line 31
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Ajouter mon idée"), "html", null, true);
+        yield "</button>
+ 
+    ";
+        // line 33
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 33, $this->source); })()), 'form_end');
+        yield "
+
+
+
+
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -129,7 +182,7 @@ class __TwigTemplate_26506d30ed603c7070937171340b8546 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  146 => 33,  141 => 31,  137 => 29,  135 => 27,  131 => 25,  129 => 23,  125 => 21,  123 => 19,  119 => 17,  117 => 15,  112 => 13,  107 => 11,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -139,7 +192,40 @@ class __TwigTemplate_26506d30ed603c7070937171340b8546 extends Template
 {% block title %}Ajouter une idée{% endblock %}
 
 {% block body %}
-<p> tu peux ajouter une idée</p>
+<h1> form pour ajouter idée </h1>
+
+
+  
+
+{{ form_errors(form) }}
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        
+        {{ form_row(form.title, {
+            'label': 'Titre'|trans
+        }) }}
+        
+        {{ form_row(form.comment, {
+            'label': 'Commentaire'|trans
+        }) }}
+        
+        {{ form_row(form.price, {
+            'label': 'Prix approximatif'|trans
+        }) }}
+        
+        {{ form_row(form.picture, {
+            'label': 'Photo'|trans
+        }) }}
+
+ <button type=\"submit\" class=\"submit-button\">{{ 'Ajouter mon idée'|trans }}</button>
+ 
+    {{ form_end(form) }}
+
+
+
+
+
+
 {% endblock %}", "home/ajouter.html.twig", "/Applications/MAMP/htdocs/dw6/projets/PetitSouhait/templates/home/ajouter.html.twig");
     }
 }

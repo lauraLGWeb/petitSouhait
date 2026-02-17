@@ -25,6 +25,10 @@ class Gift
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $comment = null;
 
+    #[ORM\ManyToOne(inversedBy: 'gifts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +78,18 @@ class Gift
     public function setComment(?string $comment): static
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
