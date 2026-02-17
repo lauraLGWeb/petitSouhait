@@ -81,13 +81,13 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         ";
         // line 23
         yield from $this->unwrap()->yieldBlock('header', $context, $blocks);
-        // line 58
+        // line 59
         yield "
 
         ";
-        // line 60
+        // line 61
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 62
+        // line 63
         yield "
 
         
@@ -267,7 +267,8 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
                         <a class=\"dropdown-item\" href=\"";
         // line 50
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_addGiftIdea");
-        yield "\">Ajouter</a>
+        yield "\">Ajouter une idée</a>
+                        
                         </div>
                     </li>
                   
@@ -284,7 +285,7 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         yield from [];
     }
 
-    // line 60
+    // line 61
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -297,7 +298,7 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 61
+        // line 62
         yield "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -321,7 +322,7 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  301 => 61,  288 => 60,  269 => 50,  258 => 42,  252 => 39,  247 => 36,  241 => 35,  236 => 33,  232 => 32,  222 => 25,  219 => 24,  206 => 23,  183 => 18,  172 => 19,  169 => 18,  156 => 17,  144 => 14,  131 => 13,  108 => 7,  91 => 62,  89 => 60,  85 => 58,  83 => 23,  78 => 20,  76 => 17,  73 => 16,  71 => 13,  62 => 7,  54 => 1,);
+        return array (  302 => 62,  289 => 61,  269 => 50,  258 => 42,  252 => 39,  247 => 36,  241 => 35,  236 => 33,  232 => 32,  222 => 25,  219 => 24,  206 => 23,  183 => 18,  172 => 19,  169 => 18,  156 => 17,  144 => 14,  131 => 13,  108 => 7,  91 => 63,  89 => 61,  85 => 59,  83 => 23,  78 => 20,  76 => 17,  73 => 16,  71 => 13,  62 => 7,  54 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -375,7 +376,8 @@ class __TwigTemplate_a0b03e6a59b31ec6a293125080a11a42 extends Template
                         Mes idées
                         </a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
-                        <a class=\"dropdown-item\" href=\"{{ path(\"app_addGiftIdea\")}}\">Ajouter</a>
+                        <a class=\"dropdown-item\" href=\"{{ path(\"app_addGiftIdea\")}}\">Ajouter une idée</a>
+                        
                         </div>
                     </li>
                   

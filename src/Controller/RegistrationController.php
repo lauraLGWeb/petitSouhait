@@ -38,7 +38,7 @@ class RegistrationController extends AbstractController
             return $security->login($user, LogginAuthenticator::class, 'main');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('home/index.html.twig', [
             'registrationForm' => $form,
         ]);
     }

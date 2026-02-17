@@ -19,7 +19,7 @@ class LogginController extends AbstractController
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
-        return $this->render('security/login.html.twig', ['error' => $error]);
+        return $this->render('home/index.html.twig', ['error' => $error]);
     }
 
     #[Route(path: '/logout', name: 'app_logout')]

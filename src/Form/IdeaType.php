@@ -6,6 +6,8 @@ use App\Entity\Gift;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\User;
 
 class IdeaType extends AbstractType
 {
@@ -16,6 +18,13 @@ class IdeaType extends AbstractType
             ->add('picture')
             ->add('price')
             ->add('comment')
+            ->add('user', EntityType::class, [
+                    'class'        => User::class,
+                    'choice_label' => 'firstName',  // affiche le prénom dans le select
+                    'label'        => 'Pour qui ?',
+                    'placeholder'  => '-- Choisir une personne --',
+])
+
         ;
     }
 

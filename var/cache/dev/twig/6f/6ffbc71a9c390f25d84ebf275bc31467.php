@@ -171,51 +171,49 @@ class __TwigTemplate_2b38674ea01d62abbc9053b23145a8fc extends Template
         yield "    </select>
 </form>
 
-
-
     ";
-        // line 34
+        // line 32
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["ideas"]) || array_key_exists("ideas", $context) ? $context["ideas"] : (function () { throw new RuntimeError('Variable "ideas" does not exist.', 34, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["ideas"]) || array_key_exists("ideas", $context) ? $context["ideas"] : (function () { throw new RuntimeError('Variable "ideas" does not exist.', 32, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["idea"]) {
-            // line 35
+            // line 33
             yield "        <section class=\"ideaCard\">
             <div>
                 <h2> ";
-            // line 37
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "title", [], "any", false, false, false, 37), "html", null, true);
+            // line 35
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "title", [], "any", false, false, false, 35), "html", null, true);
             yield "</h2>
                 <p>";
+            // line 36
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "comment", [], "any", false, false, false, 36), "html", null, true);
+            yield "</p>
+                <p>";
+            // line 37
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "price", [], "any", false, false, false, 37), "html", null, true);
+            yield "</p>
+                <p>";
             // line 38
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "comment", [], "any", false, false, false, 38), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "picture", [], "any", false, false, false, 38), "html", null, true);
             yield "</p>
                 <p>";
             // line 39
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "price", [], "any", false, false, false, 39), "html", null, true);
-            yield "</p>
-                <p>";
-            // line 40
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "picture", [], "any", false, false, false, 40), "html", null, true);
-            yield "</p>
-                <p>";
-            // line 41
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "user", [], "any", false, false, false, 41), "FirstName", [], "any", false, false, false, 41), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["idea"], "user", [], "any", false, false, false, 39), "FirstName", [], "any", false, false, false, 39), "html", null, true);
             yield "</p>
             </div>
         </section>";
             $context['_iterated'] = true;
         }
-        // line 43
+        // line 41
         if (!$context['_iterated']) {
-            // line 44
+            // line 42
             yield "            <p>Sélectionne une personne pour voir ses idées.</p>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['idea'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 44
         yield "
 ";
         
@@ -248,7 +246,7 @@ class __TwigTemplate_2b38674ea01d62abbc9053b23145a8fc extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  219 => 46,  212 => 44,  210 => 43,  203 => 41,  199 => 40,  195 => 39,  191 => 38,  187 => 37,  183 => 35,  178 => 34,  171 => 29,  162 => 26,  159 => 25,  155 => 24,  153 => 23,  148 => 22,  144 => 21,  136 => 16,  133 => 15,  127 => 14,  118 => 11,  113 => 10,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  217 => 44,  210 => 42,  208 => 41,  201 => 39,  197 => 38,  193 => 37,  189 => 36,  185 => 35,  181 => 33,  176 => 32,  171 => 29,  162 => 26,  159 => 25,  155 => 24,  153 => 23,  148 => 22,  144 => 21,  136 => 16,  133 => 15,  127 => 14,  118 => 11,  113 => 10,  108 => 9,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -283,8 +281,6 @@ class __TwigTemplate_2b38674ea01d62abbc9053b23145a8fc extends Template
         {% endfor %}
     </select>
 </form>
-
-
 
     {% for idea in ideas %}
         <section class=\"ideaCard\">

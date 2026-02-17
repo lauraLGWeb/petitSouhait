@@ -136,14 +136,20 @@ class __TwigTemplate_26506d30ed603c7070937171340b8546 extends Template
         // line 29
         yield "
 
- <button type=\"submit\" class=\"submit-button\">";
+         ";
         // line 31
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "user", [], "any", false, false, false, 31), 'row', ["label" => $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Jajoute cette idée pour : ")]);
+        // line 33
+        yield "
+
+ <button type=\"submit\" class=\"submit-button\">";
+        // line 35
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Ajouter mon idée"), "html", null, true);
         yield "</button>
  
     ";
-        // line 33
-        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 33, $this->source); })()), 'form_end');
+        // line 37
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), 'form_end');
         yield "
 
 
@@ -182,7 +188,7 @@ class __TwigTemplate_26506d30ed603c7070937171340b8546 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  146 => 33,  141 => 31,  137 => 29,  135 => 27,  131 => 25,  129 => 23,  125 => 21,  123 => 19,  119 => 17,  117 => 15,  112 => 13,  107 => 11,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  152 => 37,  147 => 35,  143 => 33,  141 => 31,  137 => 29,  135 => 27,  131 => 25,  129 => 23,  125 => 21,  123 => 19,  119 => 17,  117 => 15,  112 => 13,  107 => 11,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -215,6 +221,10 @@ class __TwigTemplate_26506d30ed603c7070937171340b8546 extends Template
         
         {{ form_row(form.picture, {
             'label': 'Photo'|trans
+        }) }}
+
+         {{ form_row(form.user, {
+            'label': 'J\\ajoute cette idée pour : '|trans
         }) }}
 
  <button type=\"submit\" class=\"submit-button\">{{ 'Ajouter mon idée'|trans }}</button>
