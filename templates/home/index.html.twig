@@ -2,6 +2,32 @@
 
 {% block title %}Hello HomeController!{% endblock %}
 
+{% block CSS %}
+    <link rel="stylesheet" href="{{ asset('styles/menu.css') }}">
+{% endblock %}
+
 {% block body %}
-<h1> Coucou {% if app.user %} {{ app.User.FirstName }}{% endif %}</h1>
+
+
+<section class="hero">
+    <h1>Bienvenue dans notre petit coin de douceurs 🌸</h1>
+    
+    <p class="hero-intro">
+        Tu sais ce moment où tu vois quelque chose et tu penses "Oh, ça ferait tellement plaisir à Maman" ? 
+        Ou quand quelqu'un t'offre exactement ce chocolat que tu adores et tu te sens vraiment écouté ?
+    </p>
+    
+    <p class="hero-description">
+        C'est ça, Petit Souhait. Un endroit où on partage nos petites envies — pas pour en avoir plus, 
+        mais pour que nos attentions tombent juste. Parce qu'une bougie qui sent bon, un carnet tout doux, 
+        ou cette tablette de chocolat préférée... c'est simple, c'est petit, mais ça vient du cœur.
+    </p>
+
+    <p class="hero-closing">
+        Entre, ajoute tes envies, découvre celles des autres. Et la prochaine fois qu'on voudra 
+        se faire plaisir, on saura exactement comment faire sourire ceux qu'on aime 
+    </p>
+    
+</section>
+
 {% endblock %}

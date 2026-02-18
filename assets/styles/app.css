@@ -124,3 +124,23 @@ body {
 
 
 
+/* ================================
+       navbar
+    ================================ */
+
+.pictExtendableButtun{
+    width: 30px;
+    }
+
+.visibleOnHover{
+    display: none;
+    width: 2px;
+    font-size: small;
+    
+    }
+
+.extendableButtun:hover .visibleOnHover {
+    display: inline;
+    color: #4c3628;
+    transition: 0.9s;
+}
