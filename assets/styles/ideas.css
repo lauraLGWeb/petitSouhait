@@ -169,3 +169,21 @@
     font-size: 2.5rem;
     margin-bottom: 0.75rem;
 }
+
+
+.btn-actuality{
+    background-color: var(--color-secondary);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    color: var(--text-on-primary);
+    box-shadow: var( --clay-btn);
+    
+}
+
+.btn-actuality:hover{
+    background-color: var(--color-secondary-hover);
+    text-decoration: none;
+    color: var( --text-on-dark);
+    box-shadow: var(--clay-btn-active);
+}
