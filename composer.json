@@ -6,6 +6,8 @@
     "require": {
         "php": ">=8.4",
         "ext-ctype": "*",
+        "ext-pdo_mysql": "*",
+        "ext-intl": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^3.1",
         "doctrine/doctrine-migrations-bundle": "^4.0",
@@ -77,7 +79,6 @@
     },
     "scripts": {
         "auto-scripts": {
-            "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "importmap:install": "symfony-cmd"
         },

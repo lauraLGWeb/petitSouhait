@@ -3,38 +3,53 @@
 {% block title %}Ajouter une idée{% endblock %}
 
 {% block body %}
-<h1> form pour ajouter idée </h1>
+
+  {% if app.current_route == 'app_addGiftIdea' %}
+        <h1>  Ajouter une idée</h1>
+    {% elseif app.current_route == 'app_modifyIdea' %}
+        <h1> Modification de l'diée </h1>
+    {% endif %}
 
 
-  
+<div class="form-container">
 
-{{ form_errors(form) }}
+    {{ form_errors(form) }}
 
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        
-        {{ form_row(form.title, {
-            'label': 'Titre'|trans
-        }) }}
-        
-        {{ form_row(form.comment, {
-            'label': 'Commentaire'|trans
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            
+            {{ form_row(form.title, {
+                'label': 'Titre',
+            }) }}
+            
+            {{ form_row(form.comment, {
+            'label': 'Commentaire'
         }) }}
         
         {{ form_row(form.price, {
-            'label': 'Prix approximatif'|trans
+            'label': 'Prix approximatif (€)'
         }) }}
         
         {{ form_row(form.picture, {
-            'label': 'Photo'|trans
+            'label': 'Lien de la photo'
         }) }}
 
- <button type="submit" class="submit-button">{{ 'Ajouter mon idée'|trans }}</button>
- 
-    {{ form_end(form) }}
+        {{ form_row(form.user, {
+            'label': 'J\'ajoute cette idée pour :'
+        }) }}
+
+
+        {% if app.current_route == 'app_addGiftIdea' %}
+            <button type="submit" class="submit-button">{{ 'Ajouter mon idée'|trans }}</button>
+        {% elseif app.current_route == 'app_modifyIdea' %}
+            <button type="submit" class="submit-button">{{ 'Modifier l\'idée'|trans }}</button>
+        {% endif %}
+
+    
+        {{ form_end(form) }}
 
 
 
-
+</div>
 
 
 {% endblock %}

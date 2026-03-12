@@ -1,0 +1,189 @@
+
+
+.pageContainer{
+    padding: 1rem;
+
+}
+
+/* ================================
+   TITRE DE PAGE
+================================ */
+
+.pageContainer h1{
+    font-size: 2.6rem;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 2rem 0;
+    letter-spacing: 0.2em;
+}
+/* ================================
+   FORMULAIRE SELECT
+================================ */
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    background: var(--bg-card);
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--clay-card);
+}
+
+.filter-form label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+#familyMembers {
+    appearance: none;
+    background: var(--bg-input);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+    border: 2px solid var(--color-primary-light);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    outline: none;
+    box-shadow: var(--clay-btn);
+    transition: border-color var(--transition), transform var(--transition-bounce);
+
+    /* flèche  */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23E8956D' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.filter-form select:focus {
+    border-color: var(--color-primary);
+    transform: scale(1.02);
+}
+
+/* ================================
+   GRILLE DE CARTES
+================================ */
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.75rem;
+}
+
+/* ================================
+   CARTE IDÉE
+================================ */
+
+.ideaCard {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--clay-card);
+    padding: 1.5rem;
+    transition: transform var(--transition-bounce), background var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.ideaCard::before {
+    content: '🎁';
+    position: absolute;
+    top: 0;
+    left: 85%;
+    font-size: 3.5rem;
+    opacity: 0.12;
+    transform: rotate(25deg);
+}
+
+.ideaCard:hover {
+    transform: translateY(-5px) scale(1.01);
+    background: var(--bg-card-hover);
+    transition: 0.5s;
+}
+
+.ideaCard h2 {
+    text-transform: uppercase;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.ideaCard .idea-comment {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.ideaCard .idea-price {
+    display: inline-block;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.75rem;
+}
+
+.ideaCard .idea-picture {
+    font-family: var(--font-accent);
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.ideaCard .idea-picture::before {
+    content: '✦ ';
+    color: var(--color-primary-light);
+}
+
+.ideaCard img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+}
+
+/* ================================
+   MESSAGE VIDE
+================================ */
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    font-family: var(--font-accent);
+    font-size: 1.3rem;
+    padding: 3rem 1rem;
+    grid-column: 1 / -1;
+}
+
+.empty-state::before {
+    content: '🌸';
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+
+.btn-actuality{
+    background-color: var(--color-secondary);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    color: var(--text-on-primary);
+    box-shadow: var( --clay-btn);
+    
+}
+
+.btn-actuality:hover{
+    background-color: var(--color-secondary-hover);
+    text-decoration: none;
+    color: var( --text-on-dark);
+    box-shadow: var(--clay-btn-active);
+}

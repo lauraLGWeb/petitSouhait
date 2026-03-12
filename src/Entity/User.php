@@ -48,10 +48,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->gifts = new ArrayCollection();
+        $this->roles=['ROLE_MEMBRE']; //member role by default
     }
-
-
-
 
 
     public function getId(): ?int
@@ -87,6 +85,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
+        
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_MEMBRE';
 
