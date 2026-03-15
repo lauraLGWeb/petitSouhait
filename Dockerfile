@@ -27,4 +27,5 @@ COPY docker/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
-CMD ["sh", "-c", "php bin/console doctrine:schema:create --no-interaction 2>/dev/null; php-fpm -D && nginx -g 'daemon off;'"]
+CMD ["sh", "-c", "php bin/console doctrine:migrations:migrate --no-interaction 2>/dev/null; php-fpm -D && nginx -g 'daemon off;'"]
+'"]
