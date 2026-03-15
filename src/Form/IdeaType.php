@@ -20,7 +20,7 @@ class IdeaType extends AbstractType
                 'attr' => ['placeholder' => 'Tablette de chocolat noir Valrhona'],
             ])
             ->add('picture', TextType::class, [
-                'attr' => ['placeholder' => 'URL d\'une image en ligne'],
+                'attr' => ['placeholder' => 'copier l\'ADRESSE de l\'image'],
             ])
             ->add('price', NumberType::class, [
                 'attr' => [
