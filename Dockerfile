@@ -19,7 +19,7 @@ ENV APP_ENV=prod
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs --no-scripts
 
-RUN php bin/console asset-map:compile
+RUN php bin/console asset-map:compile --no-debug || true
 
 RUN mkdir -p var/cache var/log && chmod -R 777 var
 
