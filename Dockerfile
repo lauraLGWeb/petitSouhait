@@ -20,6 +20,9 @@ ENV APP_SECRET=somesecretkey
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs --no-scripts
 
+RUN mkdir -p var/cache var/log && chmod -R 777 var
+
+COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
