@@ -16,17 +16,13 @@ COPY . .
 
 ENV COMPOSER_AUDIT_ABANDONED=ignore
 ENV APP_ENV=prod
+ENV APP_SECRET=somesecretkey
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs --no-scripts
 
-RUN php bin/console importmap:install --no-interaction
-
-RUN php bin/console asset-map:compile --no-debug --no-interaction
-
-RUN mkdir -p var/cache var/log && chmod -R 777 var
-
-COPY docker/nginx.conf /etc/nginx/nginx.conf
+COPY docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
 
-CMD ["sh", "-c", "php bin/console doctrine:migrations:migrate --no-interaction 2>/dev/null; php-fpm -D && nginx -g 'daemon off;'"]
+CMD ["/entrypoint.sh"]
