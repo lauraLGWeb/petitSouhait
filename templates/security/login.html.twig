@@ -2,32 +2,58 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block CSS %}
+    <link rel="stylesheet" href="{{ asset('styles/register.css') }}">
+{% endblock %}
+
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <section class="container">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ logout_path() }}">Logout</a>
-        </div>
-    {% endif %}
+            {% if app.user %}
+                <div class="mb-3">
+                    Coucou {{ app.user.userIdentifier }}, ravis de te revoir ! <a href="{{ logout_path() }}"> Me déconnecter </a>
+                </div>
+            {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <p>tu n'a pas encore de compte ? 
-        <a class="nav-link" href="{{ path("app_register")}}">M'inscrire</a>
-    </p>
-    <label for="inputEmail">Email</label>
-    <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-    <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+            <h1 class="h3 mb-3 font-weight-normal">Connecte toi vite !</h1>
+            
+            <div class="noAccount">
+                <span> Je n'ai pas encore de compte, </span>
+                <a class="nav-link" href="{{ path("app_register")}}"> M'inscrire</a>
+            </div>
 
- 
+            
+            <label for="inputEmail">Email</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+            <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+
+        
+
+            <button class="cssbuttons-io-button" type="submit">
+                Me connecter
+                <div class="icon">
+                    <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                        fill="currentColor"
+                    ></path>
+                    </svg>
+                </div>
+            </button>
+        </form>
+    </section>
 {% endblock %}

@@ -1,0 +1,35 @@
+.container {
+    padding: 1rem;
+}
+
+.noAccount {
+    background-color: var(--color-primary-light);
+    border-radius: 2rem;
+    padding: 10px 16px;
+    width: fit-content;
+    box-shadow: 
+        4px 4px 8px var(--clay-shadow-dark),
+        -3px -3px 6px var(--clay-shadow-light),
+        inset 2px 2px 4px var(--clay-inset-light),
+        inset -2px -2px 4px var(--clay-inset-dark);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.noAccount span {
+    color: var(--text-primary);
+}
+
+.noAccount a {
+    color: var(--text-link);
+    font-size: 16px;
+    padding: 0;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.noAccount a:hover {
+    color: var(--text-link-hover);
+}
